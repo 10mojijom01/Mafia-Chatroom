@@ -1,0 +1,173 @@
+.profile-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-image: url(./images/index.jpeg);
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  
+  div.App div.side-bar{
+    display: grid;
+    height: 100vh;
+    width: 30%;
+    grid-template-rows: max-content max-content auto;
+    overflow: hidden;
+    padding:  0;
+    border-right: 1px solid rgb(202, 202, 202);
+  }
+  
+  div.App div.side-bar div.friend-list{
+    overflow-y: auto;
+  }
+  
+  div.App div.side-bar div.setting {
+    background-color: #eee;
+    padding: 10px 15px;
+    height: 50px;
+  }
+  
+  div.App div.side-bar div.setting span.setting--right{
+    float: right;
+  }
+  
+  div.App div.side-bar div.setting span.setting--right i{
+    color: gray;
+    font-size: 25px;
+    line-height: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    vertical-align: middle;
+  }
+  div.App div.side-bar div.setting span.setting--right abbr{
+    margin-left: 15px;
+  }
+  
+  div.App div.side-bar div.setting span.setting--right i:hover{
+    color: cornflowerblue;
+  }
+  
+  div.App div.side-bar div.search-box{
+    background-color: #fafafa;
+    padding: 10px 13px;
+
+  }
+  
+  div.App div.side-bar div.search-box div.input-warpper{
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+  }
+  
+  div.App div.side-bar div.search-box div.input-warpper i{
+    color: gray;
+    
+    margin-left: 7px;
+  }
+  
+  div.App div.side-bar div.search-box div.input-warpper input{
+    border: none;
+    border-radius: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 80%;
+  }
+  
+  div.App div.side-bar div.search-box div.input-warpper input::placeholder{
+    color: #b3b3b3;
+    font-weight: 300;
+    margin-left: 20px;
+    font-size: 18px;
+  }
+  
+  div.App div.side-bar div.friend-drawer{
+    display: grid;
+    padding: 10px 15px;
+    grid-template-columns: max-content auto  50px;
+    transition: 0.3s  ease;
+    cursor: pointer;
+  }
+  
+  div.App div.side-bar div.friend-drawer.group{
+    grid-template-columns: max-content auto 50px;
+  }
+  
+  div.App div.side-bar div.friend-drawer.group span.var{
+    color: gray;
+  }
+  
+  div.App div.side-bar div.friend-drawer h6{
+    margin: 0;
+    line-height: 50px;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  
+  div.App div.side-bar div.friend-drawer.group h6{
+    line-height: unset;
+  }
+  
+  div.App div.side-bar div.friend-drawer p{
+    margin: 0;
+    font-size: 16px;
+    display: none;
+    color: gray;
+    transform: 0.3s;
+  }
+  
+  div.App div.side-bar div.friend-drawer.group p{
+    display: unset;
+  }
+  
+  div.App div.side-bar div.friend-drawer div.text{
+    margin-right: 6px;
+    text-align: right;
+  }
+  div.App div.side-bar div.friend-drawer span.time{
+    color: gray;
+  }
+  
+  .small{
+    font-size: 0.875em;
+  }
+
+  div.App div.side-bar div.friend-drawer.group span.time{
+    opacity: 0 !important;
+  }
+  
+  div.App div.side-bar div.friend-drawer:hover span.time{
+    opacity: 0.7;
+  }
+  
+  div.App div.side-bar div.friend-drawer.group:hover span.var{
+  color: white;
+  opacity: 0.7;
+  }
+  div.App div.side-bar div.friend-drawer:hover {
+    background-color: cornflowerblue;
+    
+  }
+  
+  div.App div.side-bar div.friend-drawer:hover p{
+    color: white;
+    opacity: 0.7;
+  }
+  
+  div.App div.side-bar div.friend-drawer:hover h6{
+    color: white;
+    
+  }
+  
+  div.App div.side-bar div.friend-drawer:hover span.time{
+    color: white;
+  }
+  
+  div.App div.side-bar hr{
+    margin: 6px auto;
+    width: 60%; 
+    height: 0px;
+    border: 0;
+    border-top:1px solid black ;
+    background-color: black;
+    opacity: 0.25;
+  }
