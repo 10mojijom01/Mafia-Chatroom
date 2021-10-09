@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
-class ImageComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
+class Imagecomponent extends Component {
+
     render() {
         return (
             <>
@@ -15,4 +13,4 @@ class ImageComponent extends Component {
     }
 }
 
-export default ImageComponent;
+export default Imagecomponent;

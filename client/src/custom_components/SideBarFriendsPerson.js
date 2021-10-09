@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import ImageComponent from './ImageComponent';  
-class Side_bar_friends_person extends Component {
-    constructor(props) {
-        super(props);
-    }
+import Imagecomponent from './Imagecomponent';  
+class SideBarFriendsPerson extends Component {
+
     render() {
         return (
             <>
@@ -12,7 +10,7 @@ class Side_bar_friends_person extends Component {
                     <div className="text">
                     <h6>{this.props.p_name}</h6>
                     </div>
-                    <ImageComponent className='profile-image' url={this.props.profile_url} alt='profile image' />
+                    <Imagecomponent className='profile-image' url={this.props.profile_url} alt='profile image' />
                 </div>
                 <hr />
                 
@@ -22,4 +20,4 @@ class Side_bar_friends_person extends Component {
     }
 }
 
-export default Side_bar_friends_person;
+export default SideBarFriendsPerson;

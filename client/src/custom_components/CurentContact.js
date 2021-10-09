@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import ImageComponent from './ImageComponent';  
-class Curent_contact extends Component {
-    constructor(props) {
-        super(props);
-    }
+import Imagecomponent from './Imagecomponent';  
+class CurentContact extends Component {
+
     render() {
         return (
 
@@ -13,7 +11,7 @@ class Curent_contact extends Component {
              <h6>{this.props.contact_name}</h6>
              <p>{this.props.contact_discription}</p>
            </div>
-         <ImageComponent className='profile-image' url={this.props.profile_url} alt='profile image' />
+         <Imagecomponent className='profile-image' url={this.props.profile_url} alt='profile image' />
     </div>
 
       
@@ -21,4 +19,4 @@ class Curent_contact extends Component {
     }
 }
 
-export default Curent_contact;
+export default CurentContact;

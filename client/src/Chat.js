@@ -1,9 +1,8 @@
 import React from 'react'
-import Curent_contact from './custom_components/Curent_contact'
+import CurentContact from './custom_components/CurentContact'
 import myimage from './images/index.jpeg'
-import ImageComponent from './custom_components/ImageComponent'
+import Imagecomponent from './custom_components/Imagecomponent'
 import senderimage from './images/H_P.jpg'
-import { IconButton } from '@mui/material'
 import TagFacesIcon from '@mui/icons-material/TagFaces';
 import MicNoneIcon from '@mui/icons-material/MicNone';
 import SendIcon from '@mui/icons-material/Send';
@@ -12,11 +11,11 @@ import './Chat.css'
 function Chat() {
     return (
         <div className="main-section">
-            <Curent_contact contact_last_seen='online' contact_name='نام مخاطب' contact_discription='چت روم مافیا' profile_url={myimage} />
+            <CurentContact contact_last_seen='online' contact_name='نام مخاطب' contact_discription='چت روم مافیا' profile_url={myimage} />
             <div className="chat_panel">
                 <div className='display'>
                     <div className="chatbubble bubble_left">
-                        <ImageComponent className='profile_image' url={senderimage} alt='left side profile' />
+                        <Imagecomponent className='profile_image' url={senderimage} alt='left side profile' />
                         <div className="shape"></div>
                         <div className="text">
                             <p>

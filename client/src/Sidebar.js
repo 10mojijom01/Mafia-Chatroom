@@ -1,7 +1,7 @@
 import React from 'react'
-import ImageComponent from './custom_components/ImageComponent';
-import Side_bar_friends_group from './custom_components/Side_bar_friends_group';
-import Side_bar_friends_person from './custom_components/Side_bar_friends_person';
+import Imagecomponent from './custom_components/Imagecomponent';
+import SideBarFriendsGroup from './custom_components/SideBarFriendsGroup';
+import SideBarFriendsPerson from './custom_components/SideBarFriendsPerson';
 import myimage from './images/index.jpeg'
 import CachedIcon from '@mui/icons-material/Cached';
 import MessageIcon from '@mui/icons-material/Message';
@@ -13,7 +13,7 @@ function Sidebar() {
     return (
         <div className="side-bar">
             <div className="setting">
-                <ImageComponent className='profile-image' url={myimage} alt='profile image' />
+                <Imagecomponent className='profile-image' url={myimage} alt='profile image' />
                 {/* <span className="profile"></span> */}
                 <span className="setting--right float-right">
                     <abbr title='تازه سازی'><i><CachedIcon /></i></abbr>
@@ -30,8 +30,8 @@ function Sidebar() {
                 </div>
             </div>
             <div className="friend-list">
-                <Side_bar_friends_person last_seen='30:12' p_name='مجتبی باغی بیرق' profile_url={myimage} />
-                <Side_bar_friends_group group_name='مجتبی باغی بیرق' profile_url={myimage} discription='گروه بازی مافیا' />
+                <SideBarFriendsPerson last_seen='30:12' p_name='مجتبی باغی بیرق' profile_url={myimage} />
+                <SideBarFriendsGroup group_name='مجتبی باغی بیرق' profile_url={myimage} discription='گروه بازی مافیا' />
             </div>
         </div>
     )
