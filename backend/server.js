@@ -3,6 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import Messages from './dbMessages.js'
 import Pusher from 'pusher'
+import cors from 'cors'
 
 // app config
 const app = express()
@@ -27,6 +28,7 @@ pusher.trigger("my-channel", "my-event", {
 
 //middleware
 app.use(express.json())
+app.use(cors())
 
 
 // DB config
@@ -42,7 +44,7 @@ mongoose.connect(connection_url, {
 
 const db = mongoose.connection
 db.once('open', () => {
-    console.log("DB connected");
+    console.log("DB connected"); 
     const msgCollection = db.collection("messagecontents")
     
     const changeStream = msgCollection.watch();
@@ -53,8 +55,11 @@ db.once('open', () => {
         if (change.operationType === "insert") {
             const messageDetails = change.fullDocument;
             pusher.trigger("messages", "inserted", {
-                name: messageDetails.user,
-                message: messageDetails.message
+                name: messageDetails.name,
+                message: messageDetails.message,
+                timestamp:messageDetails.timestamp,
+                
+
             })
         } else {
             console.log("Error triggering Pusher");
