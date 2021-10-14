@@ -34,11 +34,11 @@ function App() {
     }
   }, [messages])
 
-console.log(messages)
+
   return (
     <div className="App">
       <Sidebar/>
-      <Chat/>
+      <Chat messages={messages}/>
     </div>
   );
 }
