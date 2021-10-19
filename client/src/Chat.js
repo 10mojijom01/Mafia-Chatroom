@@ -1,4 +1,4 @@
-import {React , useState, useEffect} from 'react'
+import { React, useState } from 'react'
 import CurentContact from './custom_components/CurentContact'
 import myimage from './images/index.jpeg'
 import Imagecomponent from './custom_components/Imagecomponent'
@@ -10,18 +10,18 @@ import './Chat.css'
 import axios from './axios';
 
 function Chat({ messages }) {
-        const [input, setInput] = useState("")
-        const sendMessage =async (e)=>{
-            e.preventDefault();
-            await axios.post('./messages/new',{
-                message: input,
-                name: "mojtaba",
-                timestamp: new Date().toUTCString(),
-                received: true,
-                text_align_right:true
-            });
-            setInput('');
-        }
+    const [input, setInput] = useState("")
+    const sendMessage = async (e) => {
+        e.preventDefault();
+        await axios.post('./messages/new', {
+            message: input,
+            name: "mojtaba",
+            timestamp: new Date().toUTCString(),
+            received: false,
+            text_align_right: true
+        });
+        setInput('');
+    }
 
     return (
         <div className="main-section">
@@ -32,26 +32,26 @@ function Chat({ messages }) {
                     {messages.map((message) => (
 
                         <>
-                            
-                            
+
+
                             {
                                 message.received ? (
 
-                                <div className={`chatbubble bubble_left ${message.text_align_right ? "text_align_right" : "text_align_left"}`}>
-                                    <Imagecomponent className='profile_image' url={senderimage} alt='left side profile' />
-                                    <div className="shape"></div>
-                                    <div className="text">
-                                        <span className="name small">
-                                            {message.name}
-                                        </span>
-                                        <p>
-                                            {message.message}
-                                        </p>
-                                        <span className="timestamp small">
-                                            {message.timestamp}
-                                        </span>
+                                    <div className={`chatbubble bubble_left ${message.text_align_right ? "text_align_right" : "text_align_left"}`}>
+                                        <Imagecomponent className='profile_image' url={senderimage} alt='left side profile' />
+                                        <div className="shape"></div>
+                                        <div className="text">
+                                            <span className="name small">
+                                                {message.name}
+                                            </span>
+                                            <p>
+                                                {message.message}
+                                            </p>
+                                            <span className="timestamp small">
+                                                {message.timestamp}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
                                 ) : (
                                     <div className="chatbubble bubble_right">
                                         <div className="text">
@@ -81,10 +81,10 @@ function Chat({ messages }) {
                     <TagFacesIcon />
                 </i>
                 <form>
-                    <input value={input} onChange={e=>{setInput(e.target.value)}} type="text" placeholder='... متن خود را وارد کنید' />
+                    <input value={input} onChange={e => { setInput(e.target.value) }} type="text" placeholder='... متن خود را وارد کنید' />
                     <button onClick={sendMessage} type='submit'><i><SendIcon /></i></button>
                 </form>
-                <i className="record"> 
+                <i className="record">
                     <MicNoneIcon />
                 </i>
             </div>
@@ -94,30 +94,3 @@ function Chat({ messages }) {
 }
 
 export default Chat
-
-
-            {/* <div className="input_box">
-                <IconButton onClick={() => { document.querySelector('div.main-section div.sticker_box').classList.toggle('shown') }}>
-                    <TagFacesIcon />
-                </IconButton>
-                <input type="text" name="" id="" placeholder='... متن خود را اینجا وارد کنید' className='text_input' />
-                          
-          <InputEmoji
-          value={text}
-          onChange={setText}
-          cleanOnEnter
-          onEnter={handleOnEnter}
-          placeholder="Type a message"
-        />
-
-                <IconButton className='record' color='error'>
-                    <MicNoneIcon />
-                </IconButton>
-                <IconButton>
-                    <SendIcon />
-                </IconButton>
-
-            </div>
-            <div className="sticker_box">
-                <Picker className="sticker_list" onEmojiClick={onEmojiClick}/>
-            </div> */}
