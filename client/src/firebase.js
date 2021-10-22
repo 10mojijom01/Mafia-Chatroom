@@ -30,17 +30,17 @@ const firebaseConfig = {
 };
 
 
-  const app = initializeApp(firebaseConfig);
-  
-  const db = getFirestore(app)
-  async function GetRooms(){
-    const querySnapshot = await getDocs(collection(db, "/rooms"));
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data().name);
-    });
-  }
+  export const app = initializeApp(firebaseConfig);
+  export const database = getFirestore(app);
+  // const db = getFirestore(app)
+  // async function GetRooms(){
+  //   const querySnapshot = await getDocs(collection(db, "/rooms"));
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(doc.data().name);
+  //   });
+  // }
 
-   export default db
+  //  export default db
 
   // const db = getFirestore(firebaseConfig)
   // const auth = getAuth()

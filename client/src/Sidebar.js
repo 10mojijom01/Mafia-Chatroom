@@ -8,28 +8,49 @@ import MessageIcon from '@mui/icons-material/Message';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SearchIcon from '@mui/icons-material/Search';
 import './Sidebar.css'
-import db from  "./firebase"
+import { database } from './firebase';
 import {initializeApp  } from "firebase/app"
-import { collection, getDocs ,getFirestore ,  doc, onSnapshot } from "firebase/firestore"; 
+import { collection, getDocs ,getFirestore ,  doc, onSnapshot } from "firebase/firestore";
+ 
 import { getAuth, createUserWithEmailAndPassword ,GoogleAuthProvider} from "firebase/auth";
 
-import GetRooms from './GetRooms';
+// import GetRooms from './GetRooms';
 
 function Sidebar() {
     
 
+        const databaseRef = collection(database, 'rooms')
+        const [RoomsList, setRoomsList] = useState([])
+        useEffect(() => {
+            const getData = async()=>{
+                const data = await getDocs(databaseRef)
+                setRoomsList(data.docs.map(doc=>({...doc.data(),id:doc.id})))
+            }
+            getData()
+        }, [])
 
-        const [room, setRooms] = useState([])
-        async function GetRooms(){
-         const querySnapshot = await getDocs(collection(db, "/rooms"));
-         querySnapshot.forEach((doc) => {setRooms(doc.data())})            
-       }
-       useEffect(() => {
-         GetRooms()
+    //     async function GetRooms(){
+            
+    //      const querySnapshot = await getDocs(collection(db, "/rooms"));
+    //     //  querySnapshot.forEach((doc) => {setRooms(doc)})
+        
+    //     querySnapshot.forEach((doc)=>(
+
+    //         setRooms(oldRooms=>
+    //         [    {JSON.parse(oldRooms)} , {doc.data()}]
+            
+             
+    //         )
+            
+            
+    //         ))
+    //    }
+    //    useEffect(() => {
+    //      GetRooms()
          
-     }, [ ])
+    //  }, [ ])
     
-     console.log(room)
+     
 
     return (
         <div className="side-bar">
@@ -51,9 +72,18 @@ function Sidebar() {
                 </div>
             </div>
             <div className="friend-list">
-                {/* <SideBarFriendsPerson last_seen='30:12' p_name='مجتبی باغی بیرق' profile_url={myimage} />
-                <SideBarFriendsGroup group_name='مجتبی باغی بیرق' profile_url={myimage} discription='گروه بازی مافیا' /> */}
-    
+                {/* 
+                 */}
+                {RoomsList.map((room)=>{
+                    if (room.type_group) {
+                        return(<SideBarFriendsGroup group_name={room.name} profile_url={myimage} discription='گروه بازی مافیا' key={room.id}/>)
+                    } else {
+                        return(
+                            <SideBarFriendsPerson last_seen='30:12' p_name='مجتبی باغی بیرق' profile_url={myimage} />
+                            )
+                    }
+
+                })}
             </div>
         </div>
     )
