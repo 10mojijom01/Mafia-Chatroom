@@ -8,7 +8,7 @@ async function GetRooms() {
     
     const [room, setRooms] = useState([])
     async function GetRooms(){
-     const querySnapshot = await getDocs(collection(db, "/rooms"));
+     const querySnapshot = await getDocs(collection(db, "/main_rooms"));
      querySnapshot.forEach((doc) => {setRooms(room.push(doc.data()))})
      console.log(room)
    }
@@ -18,13 +18,6 @@ async function GetRooms() {
  }, [ ])
                             
     
-
-    return(
-        <>
-            
-        </>
-        
-    )
 }
 
 export default GetRooms

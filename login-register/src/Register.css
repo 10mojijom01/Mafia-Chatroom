@@ -1,0 +1,17 @@
+
+.form *{
+    outline: none;
+    
+}
+
+
+
+
+.MuiFormLabel-root[data-shrink = "false"]{
+    left: 100% !important;
+    transform: translate(-100% , 1em) !important; 
+}
+.MuiFormLabel-root[data-shrink = "true"]{
+    left: 100% !important;
+    transform: translate(-100% , -5px) !important; 
+}

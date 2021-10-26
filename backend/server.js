@@ -51,7 +51,6 @@ db.once('open', () => {
     
     changeStream.on("change", (change) => {
         
-        console.log(change.fullDocument)
         if (change.operationType === "insert") {
             const messageDetails = change.fullDocument;
             pusher.trigger("messages", "inserted", {

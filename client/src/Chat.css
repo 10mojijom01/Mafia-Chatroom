@@ -7,6 +7,7 @@ div.main-section{
     background: url(./images/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
     background-repeat: repeat;
     background-position: center;
+    overflow: hidden;
 }
 
 div.main-section div.setting{
@@ -60,7 +61,9 @@ div.main-section div.chat_panel{
 div.main-section div.chat_panel div.display{
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
+
 div.main-section div.chat_panel div.display div.chatbubble{
     width: fit-content;
     max-width: 55%;
@@ -77,7 +80,6 @@ div.main-section div.chat_panel div.display div.chatbubble img.profile_image{
 div.main-section div.chat_panel div.display div.chatbubble div.text{
     padding: 10px 15px;
     background-color: white;
-    
 }
 
 div.main-section div.chat_panel div.display div.chatbubble div.text span.timestamp{
@@ -85,7 +87,6 @@ div.main-section div.chat_panel div.display div.chatbubble div.text span.timesta
     display: block;
     color: gray;
     text-align: left;
-    
 }
 
 div.main-section div.chat_panel div.display div.chatbubble div.text span.name{
@@ -114,23 +115,22 @@ div.main-section div.chat_panel div.display div.bubble_left div.text{
 div.main-section div.chat_panel div.display div.bubble_left div.text span.timestamp{
     text-align: right;
 }
+
 div.main-section div.chat_panel div.display div.bubble_left div.text span.name{
     text-align: left;
 
 }
+
 div.main-section div.chat_panel div.display div.bubble_left div.shape{
     clip-path: polygon(0 0, 100% 100%, 100% 0);
     transform: translateX(5px);
-    }
-
+}
 
 div.main-section div.chat_panel div.display div.chatbubble div.shape{
     width: 30px;
     height: 40px;
     background-color: white;
 }
-
-
 
 div.main-section div.chat_panel div.display div.bubble_right{
     margin-left: auto;
@@ -144,112 +144,11 @@ div.main-section div.chat_panel div.display div.bubble_right div.text{
     color: black;
 }
 
-
 div.main-section div.chat_panel div.display div.bubble_right div.shape{
     clip-path: polygon(0 0, 100% 0, 0 100%);
     transform: translateX(-5px);
     background-color: #dcf8c6;
 }
-/* 
-div.main-section div.input_box{
-    background-color: #eee;
-    padding-left: 10px;
-    padding-right: 10px     ;
-    display: grid;
-    grid-template-columns: 70px auto 70px 70px;
-}
-
-div.main-section div.input_box input{
-    border: none;
-    border-radius: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 20px;
-}
-
-div.main-section div.input_box input::placeholder{
-    text-align: right;
-}
-
-
-
-div.main-section div.input_box button svg{
-    width: 40px;
-    height: 40px;
-}
-
-div.main-section div.sticker_box{
-    position: absolute;
-    height: 00%;
-    width: 347px;
-    border-radius: 25px 25px 0px 0px;
-    transform: translateY(-70px);
-    bottom: 0;
-    background-color: #eee;
-    transition: 0.25s;
-    overflow: hidden;
-}
-
-div.main-section div.sticker_box.shown {
-    height: 500px;
-}
-
-
-div.main-section div.sticker_box div.head{
-    height: 70px;
-    border-bottom: 1px solid rgb(202, 202, 202);
-    background-color: rgb(221, 221, 221);
-    border-radius: 0;
-}
-
-   
-
-div.main-section div.sticker_box div.head svg{
-    width: 70px;
-    height: 70px;
-    fill: grey;
-    padding: 15px 10px;
-
-}
-
-div.main-section div.sticker_box div.head svg.on{
-    fill: black;
-    border-bottom: 4px solid cyan;
-}
-
-div.main-section div.sticker_box div.head div.sticker_header{
-
-}
-
-div.main-section div.sticker_box div.head div.sticker_header button.sticker_header_button{
-    padding: 0;
-    border: none;
-
-}
-
-div.main-section div.sticker_box{
-    overflow: hidden;
-
-}
-
-div.main-section div.sticker_box div.sticker_group_list{
-    width: 1750px;
-    height: 430px;
-    overflow: hidden;
-} 
-
-div.main-section div.sticker_box aside.emoji-picker-react{
-    width: 350px !important;
-    height: 500px !important;
-    background-color: #eee;
-}
-
-div.main-section div.sticker_box aside.emoji-picker-react ::before{
-    background-color: #eee;
-} 
-*/
 
 div.main-section div.chat__footer{
     background-color: #eee;
@@ -286,8 +185,6 @@ div.main-section div.chat__footer form button{
     width: 40px;
     height: 40px;
 }
-
-
 
 div.main-section div.chat__footer i{
     padding: 15px;

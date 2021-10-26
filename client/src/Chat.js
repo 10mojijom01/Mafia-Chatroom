@@ -81,7 +81,7 @@ function Chat({ messages }) {
                     <TagFacesIcon />
                 </i>
                 <form>
-                    <input value={input} onChange={e => { setInput(e.target.value) }} type="text" placeholder='... متن خود را وارد کنید' />
+                    <input value={input} onChange={e => { setInput(e.target.value)  }} type="text" placeholder='... متن خود را وارد کنید' />
                     <button onClick={sendMessage} type='submit'><i><SendIcon /></i></button>
                 </form>
                 <i className="record">

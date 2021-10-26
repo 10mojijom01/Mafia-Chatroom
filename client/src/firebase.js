@@ -1,10 +1,11 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // import React from "react";
 import {initializeApp  } from "firebase/app"
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 
 // import firebase   from "firebase/app"
- import { collection, getDocs ,getFirestore ,  doc, onSnapshot } from "firebase/firestore"; 
+ import { getFirestore  } from "firebase/firestore"; 
+//  import { collection, getDocs ,  doc, onSnapshot } from "firebase/firestore"; 
 // import { getAuth, createUserWithEmailAndPassword ,GoogleAuthProvider} from "firebase/auth";
 
 // import au
@@ -32,20 +33,4 @@ const firebaseConfig = {
 
   export const app = initializeApp(firebaseConfig);
   export const database = getFirestore(app);
-  // const db = getFirestore(app)
-  // async function GetRooms(){
-  //   const querySnapshot = await getDocs(collection(db, "/rooms"));
-  //   querySnapshot.forEach((doc) => {
-  //     console.log(doc.data().name);
-  //   });
-  // }
 
-  //  export default db
-
-  // const db = getFirestore(firebaseConfig)
-  // const auth = getAuth()
-  // const provider = new GoogleAuthProvider()
-  
-
-  // export {auth,provider};
-  // export default db
