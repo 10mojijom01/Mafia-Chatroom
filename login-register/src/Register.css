@@ -4,8 +4,13 @@
     
 }
 
-
-
+html{
+    overflow: auto;
+    
+}
+.login{
+    transform: translateX(-50%);
+}
 
 .MuiFormLabel-root[data-shrink = "false"]{
     left: 100% !important;
