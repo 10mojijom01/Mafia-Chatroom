@@ -1,18 +1,26 @@
-import React ,{useState} from "react";
+import React ,{useRef} from "react";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import LockIcon from "@mui/icons-material/Lock";
 import GoogleIcon from "@mui/icons-material/Google";
-import { google_signup} from './firebase/firebase'
-function Login() {
 
-  const [Email, setEmail] = useState("")
-  const [Password, setPassword] = useState("")
+import Link from '@mui/material/Link';
+import { useUserContext } from "../../context/userContext";
+function Login() {
+  
+  const LoginEmailRef = useRef();
+  const LoginPasswordRef = useRef();
+  const {signInUser , forgotPassword , googleSign} = useUserContext();
 
   return (
-    <form action="" className="sign-in-form">
+    <form onSubmit={(e)=>{
+      e.preventDefault()
+      const email = LoginEmailRef.current.value
+      const password = LoginPasswordRef.current.value
+      if(email && password) signInUser(email , password)
+    }} className="sign-in-form">
       <h2 className="title">ورود</h2>
       <div className="input-field">
-        <input type="email" name="" id="" className="" placeholder="ایمیل" onChange={e=>{setEmail(e.target.value)}} />
+        <input type="email" name="" id="" className="" placeholder="ایمیل" ref={LoginEmailRef} />
         <AlternateEmailIcon
           sx={{
             width: "30px",
@@ -29,7 +37,7 @@ function Login() {
           id=""
           className=""
           placeholder="رمز عبور"
-          onChange={e=>{setPassword(e.target.value)}}
+          ref={LoginPasswordRef}
         />
         <LockIcon
           sx={{
@@ -41,11 +49,18 @@ function Login() {
         />
       </div>
       <button className="btn-submit">تایید</button>
+      <Link onClick={(e)=>{
+        e.preventDefault();
+        const email = LoginEmailRef.current.value
+        if(email)forgotPassword(email).then(()=>(LoginEmailRef.current.value=""))
 
+      }} underline="hover" sx ={{"paddingTop":"5px" , "paddingBottom":"5px" , "color":"purple" , cursor:"pointer"}}>
+        {'فراموشی رمز عبور'}
+      </Link>
       <button className="google-signIn-btn" onClick={
         e=>{
           e.preventDefault();
-          google_signup()
+          googleSign()
         }
       }>
         <span>ورود با گوگل</span>

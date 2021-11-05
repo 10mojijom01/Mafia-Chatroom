@@ -1,0 +1,54 @@
+@keyframes ldio-ib6yl25vn {
+    0% { transform: rotate(0deg) }
+    50% { transform: rotate(180deg) }
+    100% { transform: rotate(360deg) }
+  }
+  .loading .ldio-ib6yl25vn div {
+    position: absolute;
+    animation: ldio-ib6yl25vn 1s linear infinite;
+    width: 160px;
+    height: 160px;
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    box-shadow: 0 2px 0 0 #a6e15b , 0 3px 0 0 #5bcde1;
+    transform-origin: 80px 82px;
+  }
+  .loading {
+    width: 100vw;
+    height: 100vh;
+    display: inline-block;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    z-index: 100;
+    cursor: wait;
+  }
+  .loading .ldio-ib6yl25vn {
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    
+    position: relative;
+    transform: translateZ(0) translateX(-50%) translateY(-50%) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  }
+  .loading .ldio-ib6yl25vn div { box-sizing: content-box; }
+  
+  .loading::before {
+    content: "";
+    position: absolute;
+    width: 2000px;
+    height: 2000px;
+    border-radius: 50%;
+    background-color: #04befe;
+    background: linear-gradient(-45deg, #4481eb, #04befe);
+    top: -10%;
+    right: 48%;
+    transform: translateY(-50%);
+    z-index: 6;
+    transition: 1.8s ease-in-out;
+  }
+  

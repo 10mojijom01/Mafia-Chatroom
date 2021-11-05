@@ -1,15 +1,43 @@
 
-import './App.css';
-import './forms.css'
-import register from './images/Svg/register.svg'
-import login from './images/Svg/login.svg'
-import Register from './register';
-import Login from './login';
+import Alert from '@mui/material/Alert';
+import Loading from "./components/loading/loading";
 
+import { useUserContext } from "./context/userContext";
+import Auth from "./components/auth/auth";
+import Dashboard from "./components/dashBoard/dashboard";
 
 function App() {
+  const { loading, error, user } = useUserContext();
+
   return (
     <div className="App">
+
+    {error && <Alert severity="error" sx={{zIndex:"3000" , position:"absolute"}} > {error} </Alert>}
+    {loading ? <Loading/> : <>{user ? <Dashboard/> : <Auth  /> }</>}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* 
+        
+
       <div className="forms-container">
         <div className="signin-signup">
           <Register/>      
@@ -33,7 +61,7 @@ function App() {
           </div>
           <img src={login} alt="login"/>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

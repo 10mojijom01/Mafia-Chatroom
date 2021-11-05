@@ -1,41 +1,36 @@
-import React ,{useRef ,useState} from "react";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification  , updateCurrentUser} from "firebase/auth";
+import React ,{useRef } from "react";
+
 import PersonIcon from "@mui/icons-material/Person";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import LockIcon from "@mui/icons-material/Lock";
 import GoogleIcon from "@mui/icons-material/Google";
-import {signup , google_signup} from './firebase/firebase'
+import { useUserContext } from "../../context/userContext";
+
 
 
 
 function Register() {
-const auth = getAuth()
 
 
 
-const EmailRef = useRef();
-const PasswordRef = useRef();
-const NameRef = useRef()
-const [Loading, setLoading] = useState(false)
-async function handlesignup(){
 
-  setLoading(true)
-  try{
-    await signup(EmailRef.current.value , PasswordRef.current.value , NameRef.current.value)
-  }catch{
-    console.log(auth.currentUser)
-    
-  }
-  setLoading(false)
-}
-
+const RegEmailRef = useRef();
+const RegPasswordRef = useRef();
+const RegNameRef = useRef()
+const {registerUser , googleSign} = useUserContext();
 
 
   return (
-    <form action="" className="sign-up-form">
+    <form onSubmit={(e)=>{
+      e.preventDefault()
+      const email = RegEmailRef.current.value;
+      const name = RegNameRef.current.value;
+      const password = RegPasswordRef.current.value;
+      if(email && name && password) registerUser(email , password , name )
+    }} className="sign-up-form">
       <h2 className="title">عضویت</h2>
       <div className="input-field">
-        <input type="text" name="" id="" className="" placeholder="نام"  ref={NameRef} />
+        <input type="text" name="" id="" className="" placeholder="نام"  ref={RegNameRef} />
         <i>
           <PersonIcon
             sx={{
@@ -48,7 +43,7 @@ async function handlesignup(){
         </i>
       </div>
       <div className="input-field">
-        <input type="email" name="" id="" className="" placeholder="ایمیل" ref={EmailRef} autoComplete="false" />
+        <input type="email" name="" id="" className="" placeholder="ایمیل" ref={RegEmailRef} autoComplete="false" />
         <AlternateEmailIcon
           sx={{
             width: "30px",
@@ -65,7 +60,7 @@ async function handlesignup(){
           id=""
           className=""
           placeholder="رمز عبور"
-          ref={PasswordRef}
+          ref={RegPasswordRef}
           autoComplete="false"
         />
         <LockIcon
@@ -77,18 +72,12 @@ async function handlesignup(){
           }}
         />
       </div>
-      <button className="btn-submit" disabled={Loading} onClick={
-        (e)=>{
-          e.preventDefault();
-          handlesignup()
-          
-        }
-        }>تایید</button>
+      <button className="btn-submit">تایید</button>
 
       <button className="google-signIn-btn" onClick={
         (e)=>{
           e.preventDefault();
-          google_signup();
+          googleSign()
         }
         
       } >
