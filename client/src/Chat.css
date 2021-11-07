@@ -56,13 +56,18 @@ div.main-section div.setting span.time[last_seen='online'] span{
 div.main-section div.chat_panel{
     overflow: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
+
+
 
 div.main-section div.chat_panel div.display{
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
+
+
 
 div.main-section div.chat_panel div.display div.chatbubble{
     width: fit-content;

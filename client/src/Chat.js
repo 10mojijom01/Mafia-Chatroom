@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState ,useEffect , } from "react";
 import CurentContact from "./custom_components/CurentContact";
 import myimage from "./images/index.jpeg";
 import Imagecomponent from "./custom_components/Imagecomponent";
@@ -9,7 +9,12 @@ import SendIcon from "@mui/icons-material/Send";
 import "./Chat.css";
 import axios from "./axios";
 
+
 function Chat({ messages }) {
+  useEffect(() => {
+    document.querySelector('.chat_panel').scrollTo(0 , document.querySelector('.chat_panel').scrollHeight)
+
+  }, [messages])
   const [input, setInput] = useState("");
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -24,16 +29,22 @@ function Chat({ messages }) {
   };
 
   return (
-    <div className="main-section">
+    <div className="main-section" >
       <CurentContact
         contact_last_seen="online"
         contact_name="نام مخاطب"
         contact_discription="چت روم مافیا"
         profile_url={myimage}
       />
-      <div className="chat_panel">
-        <div className="display">
-          {messages.map((message) => (
+      <div className="chat_panel"  id="chat_panel" >
+        <div className="display" >
+          
+
+
+          {messages.map((message) => {
+            
+            return (
+            
             <>
               {message.received ? (
                 <div
@@ -42,6 +53,8 @@ function Chat({ messages }) {
                       ? "text_align_right"
                       : "text_align_left"
                   }`}
+                  onLoad={()=>{console.log()}}
+                  // ={()=>{document.querySelector('.chat_panel').scrollTo(0,document.body.scrollHeight);}}
                 >
                   <Imagecomponent
                     className="profile_image"
@@ -56,7 +69,7 @@ function Chat({ messages }) {
                   </div>
                 </div>
               ) : (
-                <div className="chatbubble bubble_right">
+                <div className="chatbubble bubble_right" onLoad={()=>{console.log()}}>
                   <div className="text">
                     <span className="name small">{message.name}</span>
                     <p>{message.message}</p>
@@ -66,12 +79,15 @@ function Chat({ messages }) {
                 </div>
               )}
             </>
-          ))}
+            
+          )
+          })}
         </div>
       </div>
+      
 
       <div className="chat__footer">
-        <i>
+        <i >
           <TagFacesIcon />
         </i>
         <form>
@@ -89,7 +105,7 @@ function Chat({ messages }) {
             </i>
           </button>
         </form>
-        <i className="record">
+        <i className="record" >
           <MicNoneIcon />
         </i>
       </div>

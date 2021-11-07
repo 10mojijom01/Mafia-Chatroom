@@ -1,6 +1,6 @@
 
 import {initializeApp  } from "firebase/app"
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider ,updateProfile,signInWithRedirect, signInWithEmailAndPassword , sendEmailVerification} from "firebase/auth";
+import { getAuth} from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -24,32 +24,3 @@ const firebaseConfig = {
 };
 const App = initializeApp(firebaseConfig)
 export const auth = getAuth(App);
-const provider = new GoogleAuthProvider();
-
-
-  export function signup(email , password , p_name){
-    return createUserWithEmailAndPassword(auth , email , password).then(()=>{
-      return updateProfile(auth.currentUser, {
-        displayName : p_name
-      })
-    }).then(
-
-      ()=>{
-        return sendEmailVerification(auth.currentUser)
-      }
-
-    ).catch(err=>{console.log(auth.currentUser)})
-    
-  };
-
-
-export function signin(email , password){
-  return signInWithEmailAndPassword(auth , email , password).then(res => console.log(res)).catch(err=>{console.log(err)})
-}
-
-
-  export function google_signup(){
-    
-    signInWithRedirect(auth, provider).then(res=>{console.log(res)})
-
-  }

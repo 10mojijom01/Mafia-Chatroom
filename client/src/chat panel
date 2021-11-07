@@ -1,0 +1,36 @@
+          {messages.map((message) => (
+            
+            <>
+              {message.received ? (
+                <div
+                  className={`chatbubble bubble_left ${
+                    message.text_align_right
+                      ? "text_align_right"
+                      : "text_align_left"
+                  }`}
+                  // ={()=>{document.querySelector('.chat_panel').scrollTo(0,document.body.scrollHeight);}}
+                >
+                  <Imagecomponent
+                    className="profile_image"
+                    url={senderimage}
+                    alt="left side profile"
+                  />
+                  <div className="shape"></div>
+                  <div className="text">
+                    <span className="name small">{message.name}</span>
+                    <p>{message.message}</p>
+                    <span className="timestamp small">{message.timestamp}</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="chatbubble bubble_right">
+                  <div className="text">
+                    <span className="name small">{message.name}</span>
+                    <p>{message.message}</p>
+                    <span className="timestamp small">{message.timestamp}</span>
+                  </div>
+                  <div className="shape"></div>
+                </div>
+              )}
+            </>
+          ))}
