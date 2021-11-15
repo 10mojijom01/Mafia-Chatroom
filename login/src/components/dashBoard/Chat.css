@@ -1,0 +1,230 @@
+div.main-section{
+    padding: 0;
+    display: grid;
+    grid-template-rows: 70px auto 70px;
+    height: 100vh;
+    width: 70%;
+    background: url(./images/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
+    background-repeat: repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+div.main-section div.setting{
+    padding: 10px 15px;
+    background-color: #eee;
+}
+
+div.main-section div.setting{
+    display: grid;
+    grid-template-columns: min-content auto 50px;
+    text-align: right;
+}
+
+div.main-section div.setting div.text{
+    padding-right: 10px;
+ 
+}
+
+div.main-section div.setting div.text h6{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+div.main-section div.setting div.text p{
+    font-size: 16px;
+    margin: 0;
+    color: gray;
+}
+
+div.main-section div.setting span.time[last_seen='online']{
+    color: rgb(253, 105, 51);
+    display: flex;
+}
+
+div.main-section div.setting span.time[last_seen='online'] span{
+    background-color: rgb(253, 105, 51);
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-top: 6px;
+    margin-left: 6px;
+    border-radius: 5px;
+}
+
+div.main-section div.chat_panel{
+    overflow: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+
+
+div.main-section div.chat_panel div.display{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+
+div.main-section div.chat_panel div.display div.chatbubble{
+    width: fit-content;
+    max-width: 55%;
+    display: grid;
+    margin: 10px 15px;
+}
+
+div.main-section div.chat_panel div.display div.chatbubble img.profile_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+div.main-section div.chat_panel div.display div.chatbubble div.text{
+    padding: 10px 15px;
+    background-color: white;
+}
+
+div.main-section div.chat_panel div.display div.chatbubble div.text span.timestamp{
+    margin-top: 15px;
+    display: block;
+    color: gray;
+    text-align: left;
+}
+
+div.main-section div.chat_panel div.display div.chatbubble div.text span.name{
+    margin-bottom: 15px;
+    display: block;
+    color: gray;
+    text-align: right;
+}
+
+div.main-section div.chat_panel div.display div.chatbubble.text_align_right div.text p{
+    text-align: right;
+}
+
+div.main-section div.chat_panel div.display div.chatbubble.text_align_left div.text p{
+    text-align: left;
+}
+
+div.main-section div.chat_panel div.display div.bubble_left{
+    grid-template-columns: 50px 30px auto;
+}
+
+div.main-section div.chat_panel div.display div.bubble_left div.text{
+    border-radius:0px 10px 10px 10px;
+}
+
+div.main-section div.chat_panel div.display div.bubble_left div.text span.timestamp{
+    text-align: right;
+}
+
+div.main-section div.chat_panel div.display div.bubble_left div.text span.name{
+    text-align: left;
+
+}
+
+div.main-section div.chat_panel div.display div.bubble_left div.shape{
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+    transform: translateX(5px);
+}
+
+div.main-section div.chat_panel div.display div.chatbubble div.shape{
+    width: 30px;
+    height: 40px;
+    background-color: white;
+}
+
+div.main-section div.chat_panel div.display div.bubble_right{
+    margin-left: auto;
+    grid-template-columns: auto 30px;
+    
+}
+
+div.main-section div.chat_panel div.display div.bubble_right div.text{
+    border-radius:10px 0px 10px 10px;
+    background-color: #dcf8c6;
+    color: black;
+}
+
+div.main-section div.chat_panel div.display div.bubble_right div.shape{
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    transform: translateX(-5px);
+    background-color: #dcf8c6;
+}
+
+div.main-section div.chat__footer{
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid lightgrey;
+}
+
+div.main-section div.chat__footer form{
+   display: flex;
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div.main-section div.chat__footer form input{
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+    padding: 10px 15px;
+    height: 30px;
+    font-size: 16px;
+    transition: 0.25s;
+    
+}
+
+div.main-section div.chat__footer form input::placeholder{
+    text-align: right;
+}
+
+div.main-section div.chat__footer form button{
+    padding: 0;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+div.main-section div.chat__footer i{
+    padding: 15px;
+    color: gray;
+    width: 40px;
+    height: 40px;
+}
+
+div.main-section div.chat__footer form button{
+    width: 40px;
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: none;
+}
+
+div.main-section div.chat__footer form button i{
+    width: 40px ;
+    height: 40px;
+    display: block;
+    padding: 0;
+    
+}
+
+div.main-section div.chat__footer i.record{
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+div.main-section div.chat__footer i.record:hover{
+    color: red;
+}
+
+div.main-section div.chat__footer i svg{
+    width: 40px;
+    height:40px;
+}

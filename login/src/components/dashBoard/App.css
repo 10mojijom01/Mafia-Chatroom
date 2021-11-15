@@ -1,0 +1,6 @@
+*{
+  outline: none;
+}
+div.Dashboard{
+  display: flex;
+}

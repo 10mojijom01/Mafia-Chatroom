@@ -1,0 +1,240 @@
+.profile-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-image: url(./images/index.jpeg);
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  
+  div.Dashboard div.side-bar{
+    display: grid;
+    height: 100vh;
+    width: 30%;
+    min-width: 300px;
+    grid-template-rows: max-content max-content auto;
+    overflow: hidden;
+    padding:  0;
+    border-right: 1px solid rgb(202, 202, 202);
+  }
+  
+  div.Dashboard div.side-bar div.friend-list{
+    overflow-y: auto;
+  }
+  
+  div.Dashboard div.side-bar .lds-ellipsis{
+    display: none;
+  }
+
+  div.Dashboard div.side-bar-loading div.friend-list{
+    display: none;
+  }
+  div.Dashboard div.side-bar-loading .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+  }
+  div.Dashboard div.side-bar-loading .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: orangered;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  div.Dashboard div.side-bar-loading .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  div.Dashboard div.side-bar-loading .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  div.Dashboard div.side-bar-loading .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  div.Dashboard div.side-bar-loading .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+  
+  div.Dashboard div.side-bar div.setting {
+    background-color: #eee;
+    padding: 10px 15px;
+    height: 50px;
+  }
+  
+  div.Dashboard div.side-bar div.setting span.setting--right{
+    float: right;
+  }
+  
+  div.Dashboard div.side-bar div.setting span.setting--right i{
+    color: gray;
+    font-size: 25px;
+    line-height: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    vertical-align: middle;
+  }
+  div.Dashboard div.side-bar div.setting span.setting--right abbr{
+    margin-left: 15px;
+  }
+  
+  div.Dashboard div.side-bar div.setting span.setting--right i:hover{
+    color: cornflowerblue;
+  }
+  
+  div.Dashboard div.side-bar div.search-box{
+    background-color: #fafafa;
+    padding: 10px 13px;
+
+  }
+  
+  div.Dashboard div.side-bar div.search-box div.input-warpper{
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+  }
+  
+  div.Dashboard div.side-bar div.search-box div.input-warpper i{
+    color: gray;
+    
+    margin-left: 7px;
+  }
+  
+  div.Dashboard div.side-bar div.search-box div.input-warpper input{
+    border: none;
+    border-radius: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 80%;
+  }
+  
+  div.Dashboard div.side-bar div.search-box div.input-warpper input::placeholder{
+    color: #b3b3b3;
+    font-weight: 300;
+    margin-left: 20px;
+    font-size: 18px;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer{
+    display: grid;
+    padding: 10px 15px;
+    grid-template-columns: max-content auto  50px;
+    transition: 0.3s  ease;
+    cursor: pointer;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer.group{
+    grid-template-columns: max-content auto 50px;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer.group span.var{
+    color: gray;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer h6{
+    margin: 0;
+    line-height: 50px;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer.group h6{
+    line-height: unset;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer p{
+    margin: 0;
+    font-size: 16px;
+    display: none;
+    color: gray;
+    transform: 0.3s;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer.group p{
+    display: unset;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer div.text{
+    margin-right: 6px;
+    text-align: right;
+  }
+  div.Dashboard div.side-bar div.friend-drawer span.time{
+    color: gray;
+  }
+  
+  .small{
+    font-size: 0.875em;
+  }
+
+  div.Dashboard div.side-bar div.friend-drawer.group span.time{
+    opacity: 0 !important;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer:hover span.time{
+    opacity: 0.7;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer.group:hover span.var{
+  color: white;
+  opacity: 0.7;
+  }
+  div.Dashboard div.side-bar div.friend-drawer:hover {
+    background-color: cornflowerblue;
+    
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer:hover p{
+    color: white;
+    opacity: 0.7;
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer:hover h6{
+    color: white;
+    
+  }
+  
+  div.Dashboard div.side-bar div.friend-drawer:hover span.time{
+    color: white;
+  }
+  
+  div.Dashboard div.side-bar hr{
+    margin: 6px auto;
+    width: 60%; 
+    height: 0px;
+    border: 0;
+    border-top:1px solid black ;
+    background-color: black;
+    opacity: 0.25;
+  }

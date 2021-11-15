@@ -5,8 +5,8 @@ const mafiachatSchema = mongoose.Schema({
     message: String,
     name: String,
     timestamp: String,
-    received: Boolean,
-    text_align_right: Boolean
+    text_align_right: Boolean,
+    sender_userid:String,
 })
 
 export default mongoose.model("messagecontents", mafiachatSchema )

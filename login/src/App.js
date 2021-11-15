@@ -4,7 +4,7 @@ import Loading from "./components/loading/loading";
 
 import { useUserContext } from "./context/userContext";
 import Auth from "./components/auth/auth";
-import Dashboard from "./components/dashBoard/dashboard";
+import Dashboard from "./components/dashBoard/App";
 
 function App() {
   const { loading, error, user } = useUserContext();
