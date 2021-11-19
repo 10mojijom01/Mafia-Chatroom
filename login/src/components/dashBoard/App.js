@@ -4,12 +4,24 @@ import Sidebar from './Sidebar';
 import Chat from './Chat';
 import Pusher from 'pusher-js';
 import axios from './axios';
-
-
-
+import {auth , database} from "./../../firebase/firebase"
+import { doc, setDoc } from "firebase/firestore"; 
+import { useUserContext } from "../../context/userContext";
+import { If, Then, ElseIf, Else } from 'react-if-elseif-else-render';
+import Varification from '../auth/Verification'
 function Dashboard() {
+  const { loading, error, user } = useUserContext();
+  
   const [messages, setMessages] = useState([]);
+  async function setuserprofile(){
+    await setDoc(doc(database , "/users" , auth.currentUser.uid),{
+      name : auth.currentUser.displayName,
+
+    })
+  }
   useEffect(()=>{
+
+    setuserprofile()
     axios.get('/messages/sync').then(response =>{
       setMessages(response.data)
     })
@@ -35,10 +47,18 @@ function Dashboard() {
 
 
   return (
-    <div className="Dashboard">
-      <Sidebar/>
-      <Chat messages={messages}/>
-    </div>
+    <If condition={user.emailVerified}>
+      <Then>
+        <div className="Dashboard">
+          <Sidebar/>
+          <Chat messages={messages}/>
+        </div>
+      </Then>
+      <Else>
+        <Varification/>
+      </Else>
+
+    </If>
   );
 }
 

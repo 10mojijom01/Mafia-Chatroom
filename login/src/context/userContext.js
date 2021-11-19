@@ -1,4 +1,5 @@
 import { createContext, useContext , useEffect , useState} from "react";
+
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -11,6 +12,7 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
+
 
 const UserContext = createContext({});
 
@@ -73,6 +75,7 @@ export  const UserContextProvider = ({ children }) => {
     setLoading(true);
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider)
+    
       .then((res) => {
         console.log(res);
       })
